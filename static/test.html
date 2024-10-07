@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="importmap">
+      {
+        "imports": {
+          "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+        }
+      }
+    </script>
+    <script type="module">
+      import { createApp } from "vue";
+
+      const App = {
+        template: `
+  <button @click="printMessage">Click me</button>
+  <div>{{ printMsg }}</div>
+ `,
+        methods: {
+          printMessage() {
+            this.printMsg = "Button is clicked!";
+          },
+        },
+        data() {
+          return {
+            printMsg: "Nothing to print yet!",
+          };
+        },
+      };
+
+      const app = createApp(App);
+
+      app.mount("#app");
+    </script>
+  </body>
+</html>
